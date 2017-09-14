@@ -1,0 +1,12 @@
+task buildEmber << {
+    runCommand("${projectDir}", "npm", "install")
+    runCommand("${projectDir}", "bower", "install", "--allow-root")
+    runCommand("${projectDir}", "ember", "build", "--environment", "production", "--output-path", "build/dist")
+}
+
+task cleanEmber(type: Delete) {
+    delete "${projectDir}/tmp"
+}
+
+build.dependsOn(buildEmber)
+clean.dependsOn(cleanEmber)

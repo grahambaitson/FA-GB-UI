@@ -1,0 +1,35 @@
+.models-table-wrapper {
+	.inner-table-wrapper {
+		margin-top: 15px;
+		
+		table {
+			tbody {
+				tr {
+					td {
+						// This is for wrapping long names in the cells
+						word-wrap: break-word;
+    					word-break: break-all;
+					
+						// This is for mouse hover over the functions on the rows
+						.row-function {
+							color: black;
+							
+							&:hover {
+								cursor: pointer;
+							}
+						}
+					}
+				}
+			}
+			
+			thead {
+				// This is for the header of the table showing that you can sort
+				tr:first-child {
+					th {
+						cursor: pointer;
+					}
+				}
+			}	
+		}
+	}
+}

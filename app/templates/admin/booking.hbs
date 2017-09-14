@@ -1,0 +1,26 @@
+<section id="Booking">
+    <h1>{{ t 'page.admin.booking.title' }}</h1>
+
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active">
+            <a>{{ t 'application.navigation.admin.booking.view' }}</a>
+        </li>
+
+        <li role="presentation">
+            <a>
+                {{#link-to "admin/booking/create-booking"}}
+                    {{ t 'application.navigation.admin.booking.create' }}
+                {{/link-to}}
+            </a>
+        </li>
+    </ul>
+
+    <p class="description well well-sm">
+        {{ t 'page.admin.booking.description' }}
+    </p>
+
+    {{ partial "libraries/models-table/models-table" }}
+
+    {{ partial "partials/feedback-response-message" }}
+    {{ partial "partials/feedback-error-message" }}
+</section>

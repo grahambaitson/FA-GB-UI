@@ -1,0 +1,16 @@
+{{#if record.isActive}}
+	{{#link-to "admin/hotel/create-hotel" (query-params id=record.id)}}
+		<span title="{{ t 'page.admin.hotel.table.functions.edit' }} '{{ record.name }}'"
+			class="row-function glyphicon glyphicon-edit" aria-hidden="true">
+		</span>
+	{{/link-to}}
+	<span title="{{ t 'page.admin.hotel.table.functions.deactivate' }} '{{ record.name }}'"
+		class="row-function glyphicon glyphicon-remove" aria-hidden="true"
+		{{ action 'sendAction' 'deactivate' record data }}>
+	</span>
+{{else}}
+	<span title="{{ t 'page.admin.hotel.table.functions.activate' }} '{{ record.name }}'"
+		class="row-function glyphicon glyphicon-send" aria-hidden="true"
+		{{ action 'sendAction' 'activate' record data }}>
+	</span>
+{{/if}}

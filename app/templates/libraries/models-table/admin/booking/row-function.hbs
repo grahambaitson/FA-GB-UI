@@ -1,0 +1,11 @@
+{{#if record.isActive}}
+	<span title="{{ t 'page.admin.booking.table.functions.deactivate' }} '{{ record.guestEmailAddress }}, {{ record.hotelName }}, {{ date-no-time-formatter-helper record.reservationStartDate }}'"
+		class="row-function glyphicon glyphicon-remove" aria-hidden="true"
+		{{ action 'sendAction' 'deactivate' record data }}>
+	</span>
+{{else}}
+	<span title="{{ t 'page.admin.booking.table.functions.activate' }} '{{ record.guestEmailAddress }}, {{ record.hotelName }}, {{ date-no-time-formatter-helper record.reservationStartDate }}'"
+		class="row-function glyphicon glyphicon-send" aria-hidden="true"
+		{{ action 'sendAction' 'activate' record data }}>
+	</span>
+{{/if}}

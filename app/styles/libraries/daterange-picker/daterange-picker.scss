@@ -1,0 +1,21 @@
+#DateRangePicker {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  .interaction-label {
+    font-weight: bold;
+  }
+
+  #DivDateRange {
+    display: inline;
+    background: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+  }
+
+	#SpanSelectedDateRange {
+	  margin-left: 10px;
+		font-size: 14px;
+	}
+}

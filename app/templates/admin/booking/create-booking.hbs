@@ -1,0 +1,132 @@
+<section id="CreateBooking">
+    <h1>{{ t 'page.admin.booking.title' }}</h1>
+
+    <ul class="nav nav-tabs">
+        <li role="presentation">
+            {{#link-to "admin.booking" }}
+                {{ t 'application.navigation.admin.booking.view' }}
+            {{/link-to}}
+        </li>
+
+        <li role="presentation" class="active">
+            {{#if model.isEditing}}
+                <a>{{ t 'application.navigation.admin.booking.update' }}</a>
+            {{else}}
+                <a>{{ t 'application.navigation.admin.booking.create' }}</a>
+            {{/if}}
+        </li>
+    </ul>
+
+    <p class="description well well-sm">
+        {{#if model.isEditing}}
+            {{ t 'page.admin.booking.create-booking.update-description' }}
+        {{else}}
+            {{ t 'page.admin.booking.create-booking.description' }}
+        {{/if}}
+    </p>
+
+    <div class="row" style="display: none;">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>{{t 'page.admin.booking.create-booking.form-guest-email-address-label'}}</label>
+                <select class="form-control" onchange="{{action "setSelectedGuestDetails" value="target.value"}}">
+                    {{#each model.activeGuests as |activeGuest|}}
+                        <option value={{activeGuest}}>{{activeGuest.emailAddress}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>{{t 'page.admin.booking.create-booking.form-guest-name-label'}}</label>
+                {{input type="text" value=selectedGuestName class="form-control" placeholder=(t 'page.admin.booking.create-booking.form-guest-name-placeholder') autofocus="autofocus" disabled=true}}
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group has-feedback {{if model.isHotelNameLongEnough 'has-success'}}">
+                <label>{{t 'page.admin.booking.create-booking.form-hotel-name-label'}}</label>
+                <select class="form-control" onchange={{action "setSelectedHotelDetails" value="target.value"}}>
+                    {{#each model.activeHotels as |activeHotel|}}
+                        <option value={{activeHotel.name}}>{{activeHotel.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>{{t 'page.admin.booking.create-booking.form-hotel-address-label'}}</label>
+                {{input type="text" value=selectedHotelAddress class="form-control" placeholder=(t 'page.admin.booking.create-booking.form-hotel-address-placeholder') autofocus="autofocus" disabled=true}}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>{{t 'page.admin.booking.create-booking.form-hotel-rate-label'}}</label>
+                {{input type="number" value=selectedHotelRate class="form-control" placeholder=(t 'page.admin.booking.create-booking.form-hotel-rate-placeholder') autofocus="autofocus" disabled=true}}
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            {{#if model.isEditing}}
+                <button type="button" class="btn {{if model.isModelValid 'btn-success'}}"
+                        title="{{ t 'page.admin.guest.create-guest.button-text-update' }}"
+                    {{ action "update" }}
+                        disabled={{model.isModelNotValid}}>
+                    {{ t 'page.admin.guest.create-guest.button-text-update' }}
+                </button>
+            {{else}}
+                <button type="button" class="btn {{if model.isModelValid 'btn-success'}}"
+                        title="{{ t 'page.admin.guest.create-guest.button-text-create' }}"
+                    {{ action "create" }}
+                        disabled={{model.isModelNotValid}}>
+                    {{ t 'page.admin.guest.create-guest.button-text-create' }}
+                </button>
+            {{/if}}
+        </div>
+    </div>
+
+    <hr>
+    <p class="description well well-sm">
+        {{ t 'page.admin.booking.create-booking.json-description' }}
+    </p>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group has-feedback {{if model.isJsonLongEnough 'has-success'}}">
+                <label>{{t 'page.admin.booking.create-booking.form-json-label'}}</label>
+                {{textarea type="text" rows="7" value=model.json class="form-control" placeholder=(t 'page.admin.booking.create-booking.form-json-placeholder') autofocus="autofocus"}}
+                {{#if model.isJsonLongEnough}}
+                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                {{/if}}
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <button type="button" class="btn"
+                        title="{{ t 'page.admin.booking.create-booking.button-text-project-example-json' }}"
+                        {{ action "embedProjectExampleJson" }}>
+                    {{ t 'page.admin.booking.create-booking.button-text-project-example-json' }}
+                </button>
+                <button type="button" class="btn"
+                        title="{{ t 'page.admin.booking.create-booking.button-text-block-single-booking-example-json' }}"
+                    {{ action "embedSingleBlockBookingJson" }}>
+                    {{ t 'page.admin.booking.create-booking.button-text-block-single-booking-example-json' }}
+                </button>
+                <button type="button" class="btn"
+                        title="{{ t 'page.admin.booking.create-booking.button-text-block-mixed-booking-example-json' }}"
+                    {{ action "embedMixedBlockBookingJson" }}>
+                    {{ t 'page.admin.booking.create-booking.button-text-block-mixed-booking-example-json' }}
+                </button>
+                <button type="button" class="btn {{if model.isJsonLongEnough 'btn-success'}}"
+                        title="{{ t 'page.admin.booking.create-booking.button-text-upload-json' }}"
+                        {{ action "uploadJson" }}
+                        disabled={{model.isJsonNotLongEnough}}>
+                    {{ t 'page.admin.booking.create-booking.button-text-upload-json' }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    {{partial "partials/feedback-response-message"}}
+    {{partial "partials/feedback-error-message"}}
+</section>

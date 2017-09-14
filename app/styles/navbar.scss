@@ -1,0 +1,61 @@
+#Navbar {
+	.navbar {
+		background-color:   $color-fa-background;
+    border:             none;
+    border-bottom:      3px solid $color-fa-secondary;
+
+		.navbar-header {
+			.navbar-brand {
+			  	padding: 0px;
+
+			  	> img {
+				  	height: 100%;
+				  	padding: 10px;
+				  	width: auto;
+				}
+			}
+		}
+
+		#main-navbar {
+			ul {
+				&.dropdown-menu {
+					background-color: $color-fa-background;
+          border-bottom:    3px solid $color-fa-secondary;
+
+					> li a {
+					  color: $color-fa-secondary;
+					}
+
+					> li:hover {
+						a {
+							background-color: black;
+							color: white;
+						}
+					}
+				}
+
+				li {
+				  a {
+            color: $color-fa-secondary;
+          }
+
+					&:hover {
+						background-color: $color-fa-primary;
+						a {
+						  color: white;
+						}
+					}
+
+					&.active {
+						a {
+							background-color: $color-fa-secondary;
+							color: white;
+						}
+					}
+
+
+				}
+			}
+		}
+	}
+}

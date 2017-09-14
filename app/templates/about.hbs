@@ -1,0 +1,209 @@
+<section id="About">
+	<h1>{{ t 'page.about.title' }}</h1>
+	<p>{{ t 'page.about.description' }}</p>
+
+    <button class="accordion">Tasks</button>
+    <div class="panel">
+        <p>This is an application that acts as a very simplistic booking system. Within the system you have the ability to manage guests, hotels and bookings.</p>
+        <ol>
+            <li>Write an application that takes in a string of JSON containing an array of objects each with a date and rate pair. <span class="glyphicon glyphicon-ok-circle completed"></span>
+                <ul>
+                    <li>The user has an option of inserting JSON into a textfield and then uploading it to the backend.
+                        Buttons are provided that allow the user to insert sample JSON data (i.e. data that was provided in the task description).
+                        Buttons are also provided that allow the user to insert data for block bookings and for multiple block bookings assigned to different guests and different hotels).</li>
+                </ul>
+            </li>
+            <li>Combine single bookings into a continuous rate period. <span class="glyphicon glyphicon-ok-circle completed"></span>
+                <ul>
+                    <li>The system allows data in single booking format or multiple block booking format.
+                        When displaying these on the UI, all bookings are combined into a block period booking based on the rate, then hotel and then guest.
+                        The UI will display all continuous bookings for a guest that is staying in a hotel for all nights that have the same rate.</li>
+                    <li><U>NOTE:</U> For the combined data that was provided in the task description, this application combines the data based on a reservation start date (i.e. check-in date) and reservation end date (i.e. check-out date).
+                        Therefore the combined booking data will differ slightly based on the end date.</li>
+                </ul>
+            </li>
+            <li>Generate a unique color to associate with each rate. <span class="glyphicon glyphicon-ok-circle completed"></span>
+                <ul>
+                    <li>The rate is used as a seed to a random colour. Therefore, the same rate will always return the same random colour.
+                        No colours are saved or stored on the system as each are generated based on the rate value.</li>
+                </ul>
+            </li>
+            <li>The generated colors do need to be visually distinguishable. <span class="glyphicon glyphicon-ok-circle completed"></span>
+                <ul>
+                    <li>This is achieved by providing another random colour (also based on the seed but with an offset) to be used as a border around the reservation colour.
+                        This will allow to similar colours that could potentially sit beside each other to be distinguishable.
+                        Other ways that this could be done is by using different shadings, allowing the user to add custom icons or by using different shapes, etc..
+                        but using another random colour as a border seemed to be the best approach as the chances are that these will always be distinguishable from close colours.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <button class="accordion">FAQ / Application Usage</button>
+    <div class="panel">
+        <ul>
+            <li><b>Login</b>
+                <ul>
+                    <li>Login to the application using the following credentials: username (admin) and password (admin).</li>
+                    <li>A very basic login system is implemented that allows certain parts of the site (e.g. administration tabs) to be hidden until the user has logged in.
+                        To implement this properly needs a little more work (i.e. single-sign on, etc...)</li>
+                </ul>
+            </li>
+            <li><b>Guests</b>
+                <ul>
+                    <li>Using the menu bar, you have the option to manage guests within the system.</li>
+                    <li>You have the ability to create, update, activate and deactivate guests.</li>
+                    <li><U>NOTE:</U> the email address for the guest must be unique.</li>
+                </ul>
+            </li>
+            <li><b>Hotels</b>
+                <ul>
+                    <li>Using the menu bar, you have the option to manage hotels within the system.</li>
+                    <li>You have the ability to create, update, activate and deactivate hotels.</li>
+                    <li><U>NOTE:</U> the name for the hotel must be unique.</li>
+                </ul>
+            </li>
+            <li><b>Bookings</b>
+                <ul>
+                    <li>Using the menu bar, you have the option to manage bookings within the system.</li>
+                    <li>You have the ability to create, activate and deactivate bookings.</li>
+                    <li>In order to create bookings, you can upload the data directly into the textarea provided.</li>
+                    <li>You can use the 'Project Example JSON' button to load the sample JSON data given as part of the project. You must use this format for the JSON data.</li>
+                    <li>In addition, you can also provide a guest and a hotel as part of the data</li>
+                    <li><U>NOTE:</U> If providing a guest, the guest email address must exist in the system. Please create a new guest by going to guest > create.</li>
+                    <li><U>NOTE:</U> If providing a hotel, the hotel name must exist in the system. Please create a new hotel by going to hotel > create.</li>
+                    <li>You can also use the 'Single Block Booking Example JSON' to upload a block booking.</li>
+                    <li>You can also use the 'Mixed Block Booking Example JSON' to upload a block booking for a specific guest and specific hotel.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <button class="accordion">Development Features</button>
+    <div class="panel">
+        <h4>Login/Logout</h4>
+        <ul>
+            <li>Add menu option for logging in <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add menu option for logging out <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add fields for logging in <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add basic backend functionality for credential validation on logging in (NOTE: only accept admin/admin as username and password) <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality for logging out <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+        </ul>
+
+        <h4>Site Security</h4>
+        <ul>
+            <li>Only show certain parts of the site (i.e. guest, hotel and booking information) once the user has been validated and logged in <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+        </ul>
+
+        <h4>View Guests</h4>
+        <ul>
+            <li>View all saved guests <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add U.S. format for date <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality for column filter search <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality for general filter search on whole table <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality for pagination <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality to order by column (click on column header) <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality to edit, activate and deactive guests <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+        </ul>
+
+        <h4>Create Guest</h4>
+        <ul>
+            <li>Add fields for creating a guest <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add basic frontend validation to ensure text (i.e. length of 3) has been entered into required fields <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add basic backend validation to ensure text (i.e. length of 3) has been entered into required fields <span class="glyphicon glyphicon-remove-circle todo"></span></li>
+            <li>Add frontend validation to ensure email address is correct format <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add backend validation to ensure email address is correct format <span class="glyphicon glyphicon-remove-circle todo"></span></li>
+            <li>Add backend validation to ensure the email address is unique (i.e. doesn't already exist) <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality to provide user feedback on event <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+        </ul>
+
+        <h4>View Hotels</h4>
+        <ul>
+            <li>View all saved hotels <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add U.S. format for date <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality for column filter search <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality for general filter search on whole table <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality for pagination <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality to order by column (click on column header) <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality to edit, activate and deactive hotels <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+        </ul>
+
+        <h4>Create Hotel</h4>
+        <ul>
+            <li>Add fields for creating a hotel <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add basic frontend validation to ensure text (i.e. length of 3) has been entered into required fields <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add basic backend validation to ensure text (i.e. length of 3) has been entered into required fields <span class="glyphicon glyphicon-remove-circle todo"></span></li>
+            <li>Add frontend validation to ensure number of rooms is greater than 0 <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add backend validation to ensure number of rooms is greater than 0 <span class="glyphicon glyphicon-remove-circle todo"></span></li>
+            <li>Add frontend validation to ensure rate is greater than or equal to 0 <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add backend validation to ensure rate is greater than or equal 0 <span class="glyphicon glyphicon-remove-circle todo"></span></li>
+            <li>Add backend validation to ensure the hotel name is unique (i.e. doesn't already exist) <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality to provide user feedback on event <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+        </ul>
+
+        <h4>View Bookings</h4>
+        <ul>
+            <li>View all saved bookings <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add U.S. format for date <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality for column filter search <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality for column dropdown filter search <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality for general filter search on whole table <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality for pagination <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality to order by column (click on column header) <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality to activate and deactive bookings <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li class="important">Group all individual bookings into a single concurrent block booking (i.e. reservation start date (check-in) and reservation end date (check-out)) where appropriate (bookings are combined based on the same guest, for the same hotel, for the same rate). <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+        </ul>
+
+        <h4>Create Booking</h4>
+        <ul>
+            <li>Add fields (i.e. guest, hotel, rate, reservation start date and reservation end date) for creating a hotel <span class="glyphicon glyphicon-remove-circle todo"></span></li>
+            <li>Add basic frontend validation to ensure JSON data (i.e. length of 3) has been entered into required field <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add basic backend validation to ensure JSON data (i.e. length of 3) has been entered into required field <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add basic frontend validation to ensure data is correct JSON structure <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add backend validation to ensure the reservation start date and reservation end date are not the same date <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add backend validation to ensure the reservation start date comes before the reservation end date <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add button functionality for adding project example JSON <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add button functionality for adding single block booking example JSON <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add button functionality for adding mixed block booking JSON <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+            <li>Add functionality to provide user feedback on event <span class="glyphicon glyphicon-ok-circle completed"></span></li>
+        </ul>
+    </div>
+
+    <button class="accordion">Future Development</button>
+    <div class="panel">
+        <ul>
+            <li>On all the pages that display data, use the following data range option to allow the user to filter data based on a date range.
+                <p>{{ partial "libraries/daterange-picker/daterange-picker" }}</p>
+            </li>
+            <li>Allow the user to create a new booking using UI options. This would be done by providing the user with a list of all active guests and hotels and then allowing them to choose a reservation start date and end date.
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>{{t 'page.admin.booking.create-booking.form-guest-email-address-label'}}</label>
+                            <select class="form-control">
+                                {{#each model.activeGuests as |activeGuest|}}
+                                    <option>{{activeGuest.emailAddress}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>{{t 'page.admin.booking.create-booking.form-hotel-name-label'}}</label>
+                            <select class="form-control">
+                                {{#each model.activeHotels as |activeHotel|}}
+                                    <option>{{activeHotel.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>When creating a new booking, only allow bookings for active guests and users.</li>
+            <li>Allow the user to edit bookings. This would require a lot of checks on the database for changing the booking details (e.g. guest and hotel details). I would most likely add a booking reference value to each booking to allow that specific booking to be updated.</li>
+            <li>At the moment, the hotel rate for the hotel is fixed. There should obviously be some algorithm that determines the price of the room depending on the time of week/year.</li>
+            <li>Allow the user to update all values related to the hotel. This would involve making sure that when updating a hotel, the combined name and address is unique. At the moment, I have just chosen the hotel name to be unique when creating a hotel to show that the application is doing validation from the database.</li>
+            <li>Allow the user to update all values related to the guest. This would involve making sure that when updating a guest, the email address is unique. At the moment, I have just chosen the email address to be unique when creating a guest to show that the application is doing validation from the database.</li>
+        </ul>
+    </div>
+</section>

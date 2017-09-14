@@ -1,0 +1,17 @@
+{
+  "name": "fa-gb-ui",
+  "dependencies": {
+    "ember": "~2.8.0",
+    "ember-cli-shims": "0.1.1",
+    "ember-cli-test-loader": "0.2.2",
+    "ember-qunit-notifications": "0.1.0",
+    "bootstrap-sass": "^3.3.6",
+    "uri.js": "^1.17.1",
+    "bootstrap-toggle": "^2.2.2",
+    "moment": "momentjs#^2.13.0",
+    "pretender": "~0.10.1",
+    "lodash": "~3.7.0",
+    "Faker": "~3.0.0"
+  },
+  "devDependencies": {}
+}

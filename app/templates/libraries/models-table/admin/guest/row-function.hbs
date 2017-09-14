@@ -1,0 +1,16 @@
+{{#if record.isActive}}
+	{{#link-to "admin/guest/create-guest" (query-params id=record.id)}}
+		<span title="{{ t 'page.admin.guest.table.functions.edit' }} '{{ record.emailAddress }}'"
+			class="row-function glyphicon glyphicon-edit" aria-hidden="true">
+		</span>
+	{{/link-to}}
+	<span title="{{ t 'page.admin.guest.table.functions.deactivate' }} '{{ record.emailAddress }}'"
+		class="row-function glyphicon glyphicon-remove" aria-hidden="true"
+		{{ action 'sendAction' 'deactivate' record data }}>
+	</span>
+{{else}}
+	<span title="{{ t 'page.admin.guest.table.functions.activate' }} '{{ record.emailAddress }}'"
+		class="row-function glyphicon glyphicon-send" aria-hidden="true"
+		{{ action 'sendAction' 'activate' record data }}>
+	</span>
+{{/if}}

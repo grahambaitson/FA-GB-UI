@@ -1,0 +1,25 @@
+<section id="Index">
+	<div class="jumbotron text-center">
+	    <h1>{{t 'page.home.header'}}</h1>	
+	    <p>{{t 'page.home.description'}}</p>	    	   
+	    	    	    
+		{{#unless model.responseMessage}}		
+		    <div class="form-horizontal form-group form-group-lg row has-feedback {{if model.isValidEmailAddress 'has-success'}}">
+		        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2 has-feedback {{if isValid 'has-success'}}">
+		          	{{input type="email" value=model.emailAddress class="form-control" placeholder=(t 'page.home.form.email-placeholder') autofocus="autofocus"}}
+		          	{{#if model.isValidEmailAddress}}
+		          		<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+		       		{{/if}}
+		        </div>
+		        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
+		            <button class="btn btn-primary btn-lg btn-block" disabled={{model.isModelNotValid}} {{action 'saveInvitation' model}}>
+		            	{{t 'page.home.form.submit-button'}}
+	            	</button>
+		        </div>
+		    </div>	    
+	    {{/unless}}
+	    
+	    {{partial "partials/feedback-response-message"}}  
+	    {{partial "partials/feedback-error-message"}}
+	</div>
+</section>

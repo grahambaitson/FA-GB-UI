@@ -1,0 +1,34 @@
+$color-fa-primary:    #303030;
+$color-fa-secondary:  #2CA5DB;
+$color-fa-background: #efefef;
+
+@import "bootstrap";
+@import "login";
+@import "navbar";
+@import "footer";
+@import "libraries/models-table/models-table";
+@import "libraries/daterange-picker/daterange-picker";
+@import "about";
+@import "partials/feedback-error-message";
+@import "partials/feedback-response-message";
+
+@import "admin/booking";
+@import "admin/booking/create-booking";
+@import "admin/guest";
+@import "admin/guest/create-guest";
+@import "admin/hotel";
+@import "admin/hotel/create-hotel";
+
+body {
+  	padding-top: 10px;
+  	padding-bottom: 10px;
+
+  	.alert {
+  		white-space: normal;
+  		word-wrap: break-word;
+  	}
+
+  	.container {
+  		width: 90%;
+  	}
+}

@@ -1,0 +1,74 @@
+<section id="CreateGuest">
+    <h1>{{ t 'page.admin.guest.title' }}</h1>
+
+    <ul class="nav nav-tabs">
+        <li role="presentation">
+            {{#link-to "admin.guest" }}
+                {{ t 'application.navigation.admin.guest.view' }}
+            {{/link-to}}
+        </li>
+
+        <li role="presentation" class="active">
+            {{#if model.isEditing}}
+                <a>{{ t 'application.navigation.admin.guest.update' }}</a>
+            {{else}}
+                <a>{{ t 'application.navigation.admin.guest.create' }}</a>
+            {{/if}}
+        </li>
+    </ul>
+
+    <p class="description well well-sm">
+        {{#if model.isEditing}}
+            {{ t 'page.admin.guest.create-guest.update-description' }}
+        {{else}}
+            {{ t 'page.admin.guest.create-guest.description' }}
+        {{/if}}
+    </p>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group has-feedback {{if model.isNameLongEnough 'has-success'}}">
+                <label>{{t 'page.admin.guest.create-guest.form-name-label'}}</label>
+                {{input type="text" value=model.name class="form-control" placeholder=(t 'page.admin.guest.create-guest.form-name-placeholder') autofocus="autofocus"}}
+                {{#if model.isNameLongEnough}}
+                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                {{/if}}
+            </div>
+
+            <div class="form-group has-feedback {{if model.isValidEmailAddress 'has-success'}}">
+                <label>{{t 'page.admin.guest.create-guest.form-email-address-label'}}</label>
+                {{input type="email" value=model.emailAddress class="form-control" placeholder=(t 'page.admin.guest.create-guest.form-email-address-placeholder') autofocus="autofocus" disabled=model.isEditing}}
+                {{#if model.isValidEmailAddress}}
+                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                {{/if}}
+            </div>
+
+            <div class="form-group has-feedback has-success">
+                <label>{{t 'page.admin.guest.create-guest.form-cell-number-label'}}</label>
+                {{input type="text" value=model.cellNumber class="form-control" placeholder=(t 'page.admin.guest.create-guest.form-cell-number-placeholder') autofocus="autofocus"}}
+                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            {{#if model.isEditing}}
+                <button type="button" class="btn {{if model.isModelValid 'btn-success'}}"
+                        title="{{ t 'page.admin.guest.create-guest.button-text-update' }}"
+                    {{ action "update" }}
+                        disabled={{model.isModelNotValid}}>
+                    {{ t 'page.admin.guest.create-guest.button-text-update' }}
+                </button>
+            {{else}}
+                <button type="button" class="btn {{if model.isModelValid 'btn-success'}}"
+                        title="{{ t 'page.admin.guest.create-guest.button-text-create' }}"
+                    {{ action "create" }}
+                        disabled={{model.isModelNotValid}}>
+                    {{ t 'page.admin.guest.create-guest.button-text-create' }}
+                </button>
+            {{/if}}
+        </div>
+    </div>
+
+    {{partial "partials/feedback-response-message"}}
+    {{partial "partials/feedback-error-message"}}
+</section>
